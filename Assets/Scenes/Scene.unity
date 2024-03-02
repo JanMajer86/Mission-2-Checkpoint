@@ -1694,7 +1694,6 @@ MonoBehaviour:
   box: {fileID: 145979411}
   hud: {fileID: 155561231}
   startButton: {fileID: 185694415}
-  timer: {fileID: 0}
   isGameRunning: 0
 --- !u!4 &1554697042
 Transform:
@@ -1723,7 +1722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81eae5b9e70c66a4db9c19d0881635a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 5
+  duration: 30
   timeRemaining: 0
   isCountingDown: 0
   timerText: {fileID: 55070752}

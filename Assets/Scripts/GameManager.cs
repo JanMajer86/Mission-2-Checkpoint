@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject box;
     public GameObject hud;
     public Button startButton;
-    public Timer timer;
+    private Timer timer;
     public bool isGameRunning;
 
     void Start()
@@ -19,7 +19,22 @@ public class GameManager : MonoBehaviour
         timer = gameObject.GetComponent<Timer>();
     }
 
-    // Update is called once per frame
+    void Update()
+    {
+        if (!isGameRunning)
+        {
+            return;
+        }
+
+        if (timer.timeRemaining <= 0)
+        {
+            isGameRunning = false;
+            EndGame();
+        }
+    }
+
+
+
     public void StartGame()
     {
         isGameRunning = true;
@@ -29,14 +44,15 @@ public class GameManager : MonoBehaviour
         hud.SetActive(true);
         startButton.gameObject.SetActive(false);
 
-        if (timer.timeRemaining <= 0 )
-        {
-            isGameRunning = false;
-            player.SetActive(false);
-            box.SetActive(false);
-            hud.SetActive(false);
-            startButton.gameObject.SetActive(true);
-        }
+    }
+
+    public void EndGame()
+    {
+        isGameRunning = false;
+        player.SetActive(false);
+        box.SetActive(false);
+        hud.SetActive(false);
+        startButton.gameObject.SetActive(true);
     }
 
 }
